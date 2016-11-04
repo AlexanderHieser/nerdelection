@@ -7,19 +7,43 @@
 </div>
 
 <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Statistik für diesen Monat:
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>Mögliche Spiele</h1>
+                </div>
+                <div class="col-md-4">
+                    <h1>Tatsächlich gepielt</h1>
+                </div>
+                <div class="col-md-4">
+                    <h1>MVP of the Month</h1>
+                </div>
+        </div>
+    </div>
+  </div>
     <table class="table table-hover">
         <thead>
             <th>Datum</th>
+            <th>Tag</th>
             <th>Spiel</th>
             <th>Teilnehmer</th>
         </thead>
         <tbody>
             <tr ng-repeat="day in days" ng-click="addToDay(day)">
-                <td>{{day.id}}</td>
-                <td>Battlefield</td>
-                <td><span class="label label-primary padding" ng-repeat="member in day.members">
+                <td>
+                    <h4>{{day.id}}</h4></td>
+                <td>
+                    <h4>{{day.date}}</h4></td>
+                <td>
+                    <h4>Battlefield</h4></td>
+                <td>
+                    <h4><span class="label label-primary padding" ng-repeat="member in day.members">
                 {{member}}
-            </span> </td>
+            </span></h4> </td>
             </tr>
         </tbody>
     </table>

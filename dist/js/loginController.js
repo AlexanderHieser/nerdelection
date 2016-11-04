@@ -7,6 +7,7 @@ nerdApp.controller('loginController', function($scope, $http, global, $state) {
 			console.log($scope.selecteduser);
 			global.user = $scope.selecteduser;
 			console.log(global.user);
+			localStorage.setItem('user',global.user);
 			$state.go('dashboard');
 		} else {
 			alert("Wähle deinen Namen, bitch !");
