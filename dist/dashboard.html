@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-3">Hello {{user}}, du n00b</h1>
+        <p class="lead">Das ist die offizielle Seite zum abstimmen über die Monatlichen Schlachtungstermine.</p>
+        <hr class="my-2">
+    </div>
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <th>Datum</th>
+            <th>Spiel</th>
+            <th>Teilnehmer</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="day in days" ng-click="addToDay(day)">
+                <td>{{day.id}}</td>
+                <td>Battlefield</td>
+                <td><span class="label label-primary padding" ng-repeat="member in day.members">
+                {{member}}
+            </span> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

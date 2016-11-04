@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="login-container">
+        <h1>Login</h1>
+        <span>Logge dich ein, schnell !!!</span>
+        <br></br>
+        <form>
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <select class="form-control" id="name" ng-model="selecteduser">
+                    <option>Alex</option>
+                    <option>Achim</option>
+                    <option>Philipp</option>
+                    <option>Simon</option>
+                    <option>Dominik</option>
+                </select>
+            </div>
+            <button ui-sref="app.dashboard" ng-click="login()" class="btn btn-primary fullsize">Login</button>
+        </form>
+    </div>
+</div>

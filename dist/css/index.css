@@ -1,0 +1,17 @@
+.login-container {
+    width: 400px;
+    position: relative;;
+    margin: 0px auto;
+    margin-top: 300px;
+    border: 1px solid #999;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.fullsize {
+    width: 100%;
+}
+
+.padding {
+    margin-right: 10px;
+}
