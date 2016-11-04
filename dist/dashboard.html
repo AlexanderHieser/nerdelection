@@ -1,5 +1,5 @@
 <div class="header">
-  <h1 class="welcome">N3RD SQUAD </h1>
+    <h1 class="welcome">N3RD SQUAD </h1>
 </div>
 
 <img class="fixed-social" src="images/fb.png">
@@ -17,11 +17,105 @@
                     <h1><span class="text-muted">Gespielt:</span> <span>{{played}}</span></h1>
                 </div>
                 <div class="col-md-4 centered">
-                  <h1><span class="text-muted">MVP:</span> <span>{{mvp}}</span></h1>
+                    <h1><span class="text-muted">MVP:</span> <span>{{mvp}}</span></h1>
                 </div>
+            </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>1. Woche</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                    <th>Datum</th>
+                    <th>Tag</th>
+                    <th>Spiel</th>
+                    <th>Teilnehmer</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="day in get1Week()" ng-click="addToDay(day)">
+                        <td>
+                            <h4>{{day.id}}</h4></td>
+                        <td>
+                            <h4>{{day.date}}</h4></td>
+                        <td>
+                            <h4>Battlefield</h4></td>
+                        <td>
+                            <h4><span class="label label-primary padding" ng-repeat="member in day.members">
+                {{member}}
+            </span></h4> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>2. Woche</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                    <th>Datum</th>
+                    <th>Tag</th>
+                    <th>Spiel</th>
+                    <th>Teilnehmer</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="day in get2Week()" ng-click="addToDay(day)">
+                        <td>
+                            <h4>{{day.id}}</h4></td>
+                        <td>
+                            <h4>{{day.date}}</h4></td>
+                        <td>
+                            <h4>Battlefield</h4></td>
+                        <td>
+                            <h4><span class="label label-primary padding" ng-repeat="member in day.members">
+              {{member}}
+          </span></h4> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>3. Woche</h3>
+      </div>
+      <div class="panel-body">
+      <table class="table table-hover">
+          <thead>
+              <th>Datum</th>
+              <th>Tag</th>
+              <th>Spiel</th>
+              <th>Teilnehmer</th>
+          </thead>
+          <tbody>
+              <tr ng-repeat="day in get3Week()" ng-click="addToDay(day)">
+                  <td>
+                      <h4>{{day.id}}</h4></td>
+                  <td>
+                      <h4>{{day.date}}</h4></td>
+                  <td>
+                      <h4>Battlefield</h4></td>
+                  <td>
+                      <h4><span class="label label-primary padding" ng-repeat="member in day.members">
+                  {{member}}
+              </span></h4> </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
   </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>4. Woche</h3>
+    </div>
+    <div class="panel-body">
     <table class="table table-hover">
         <thead>
             <th>Datum</th>
@@ -30,7 +124,7 @@
             <th>Teilnehmer</th>
         </thead>
         <tbody>
-            <tr ng-repeat="day in days" ng-click="addToDay(day)">
+            <tr ng-repeat="day in get4Week()" ng-click="addToDay(day)">
                 <td>
                     <h4>{{day.id}}</h4></td>
                 <td>
@@ -44,4 +138,5 @@
             </tr>
         </tbody>
     </table>
+  </div>
 </div>

@@ -5,9 +5,9 @@ nerdApp.controller('mainController', function($scope, $http, global) {
     $scope.user = localStorage.getItem('user');
     $scope.month = [];
 
-		$scope.possible = daysInMonth();
-		$scope.played = "0";
-		$scope.mvp = "Alex, wer sonst";
+    $scope.possible = daysInMonth();
+    $scope.played = "0";
+    $scope.mvp = "Alex, wer sonst";
     Date.prototype.getWeekDay = function() {
         var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         return weekday[this.getDay()];
@@ -18,7 +18,7 @@ nerdApp.controller('mainController', function($scope, $http, global) {
         $scope.month = response.data;
         $scope.days = $scope.month.days;
     }, function onError(response) {
-				console.log("error"+ response);
+        console.log("error" + response);
     });
 
 
@@ -58,24 +58,44 @@ nerdApp.controller('mainController', function($scope, $http, global) {
                     var index = entry.members.indexOf($scope.user);
                     entry.members.splice(index, 1);
                 }
-								updateDay(day);
+                updateDay(day);
             }
         });
     }
 
-		function updateDay(day) {
-			var json = {
-				id:day.id,
-				date:day.date,
-				members:day.members
-			}
-			console.log(json);
-			$http.post('app/update',json).then(function success(response) {
-				console.log(response);
-			}, function error(response) {
-				console.log(response);
-			})
-		}
+
+    $scope.get1Week = function() {
+        return $scope.month.days.slice(0, 7);
+    }
+
+
+    $scope.get2Week = function() {
+        return $scope.month.days.slice(8, 15);
+    }
+
+
+    $scope.get3Week = function() {
+        return $scope.month.days.slice(16, 23);
+    }
+
+
+    $scope.get4Week = function() {
+        return $scope.month.days.slice(24, 31);
+    }
+
+    function updateDay(day) {
+        var json = {
+            id: day.id,
+            date: day.date,
+            members: day.members
+        }
+        console.log(json);
+        $http.post('app/update', json).then(function success(response) {
+            console.log(response);
+        }, function error(response) {
+            console.log(response);
+        })
+    }
 
 
 });
