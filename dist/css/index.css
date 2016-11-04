@@ -24,3 +24,41 @@
 .centered {
   text-align: center;
 }
+
+.container {
+  margin-top: 20px;
+}
+
+
+
+.header {
+  height: 250px;
+  background: url('../images/xlarge.img.jpg');
+  width: 100%;
+  background-size: cover;
+  background-position: to;
+  top: 0px;
+
+}
+.fixed-social{
+  width: 45px;
+  height: 45px;
+  position: fixed;
+  top: 270px;
+  margin-left: 14px;
+}
+table {
+  cursor: pointer;
+}
+
+table.tbody.tr {
+  background: #AAA;
+}
+h1.welcome {
+  color: white;
+  position: relative;;
+  text-align: center;
+  padding-top: 120px;
+  font-size: 60px;
+  margin: 0px auto;
+}
