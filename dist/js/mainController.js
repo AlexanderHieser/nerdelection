@@ -4,6 +4,10 @@ nerdApp.controller('mainController', function($scope, $http, global) {
     $scope.user = global.user;
     $scope.user = localStorage.getItem('user');
     $scope.month = [];
+
+		$scope.possible = daysInMonth();
+		$scope.played = "0";
+		$scope.mvp = "Alex, wer sonst";
     Date.prototype.getWeekDay = function() {
         var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         return weekday[this.getDay()];
