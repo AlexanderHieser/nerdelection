@@ -16,7 +16,7 @@ app.use(bodyParser.json({
 })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-mongoose.connect('mongodb://localhost/');
+mongoose.connect('mongodb://nerd:nerdsquad@ds143777.mlab.com:43777/nerd');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -105,32 +105,46 @@ function createNewMonth() {
 }
 
 app.get('/app/month', function(req, res) {
-
+    console.log("Update");
     GameMonth.findOne({
         id: getID()
     }, function(err, month) {
         if (err) return console.log(err);
-        console.log(month);
+        console.log("Month"+month);
         res.send(month);
     });
 });
 
 app.post('/app/update', function(req, res) {
     var date = req.body;
-    console.log(date);
-    var query = {
-        'username': req.user.username
-    };
-    req.newData.username = req.user.username;
-    MyModel.findOneAndUpdate(query, req.newData, {
-        upsert: true
-    }, function(err, doc) {
-        if (err) return res.send(500, {
-            error: err
+    GameMonth.findOne({
+        id: getID()
+    }, function(err, month) {
+        if (err) return console.log(err);
+        console.log(month);
+        month.days.forEach(function(entry) {
+            if (entry.id == date.id) {
+                entry.members = date.members;
+								console.log(entry.members);
+            }
         });
-        return res.send("succesfully saved");
+        var query = {
+            'id': getID()
+        };
+        GameMonth.findOneAndUpdate(query, month, {
+            upsert: true
+        }, function(err, doc) {
+            if (err) return res.send(500, {
+                error: err
+            });
+            return res.send("succesfully saved" + date.id);
+        });
     });
-    res.send(date.id);
+
+
+
+
+
 
 })
 
